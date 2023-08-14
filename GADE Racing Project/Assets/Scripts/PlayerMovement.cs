@@ -23,7 +23,16 @@ public class PlayerMovement : MonoBehaviour
         MoveMethodPH();
     }
 
+    public void HandleExceptions()
+    {
+        if (MoveSpeed == 0)
+        {
+            MoveSpeed = 50;
+        }
 
+
+
+    }
 
     public void MoveMethodPH()
     {
