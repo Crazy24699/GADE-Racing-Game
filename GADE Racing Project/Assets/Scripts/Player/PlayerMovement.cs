@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     
     public float MoveSpeed = 50;
 
+    public float CurrentMoveSpeed;
 
     public Rigidbody Rigidbody;
     // Start is called before the first frame update
@@ -38,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
     {
         float HorizontalSpeed = Input.GetAxis("Horizontal");
         float VerticalSpeed = Input.GetAxis("Vertical");
+
+        CurrentMoveSpeed = HorizontalSpeed;
 
         Vector3 MoveDirection = new Vector3(HorizontalSpeed * MoveSpeed, Rigidbody.velocity.y, VerticalSpeed * MoveSpeed);
 

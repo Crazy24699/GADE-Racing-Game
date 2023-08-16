@@ -16,7 +16,8 @@ public class HandleCheckpoints : MonoBehaviour
     
     void Start()
     {
-        
+        EventHandler.EventHandlerInstance.CheckpointTriggered.AddListener(SetActiveCheckpoint);
+        SpawnCheckpoints();
     }
 
     // Update is called once per frame
@@ -30,28 +31,43 @@ public class HandleCheckpoints : MonoBehaviour
     {
         for (int i = 0; i < CheckpointLocations.Count; )
         {
+            GameObject CheckpointParentObject = GameObject.Find("Checkpoint Parent");
             GameObject SpawningCheckpoint;
             SpawningCheckpoint = Instantiate(CheckpointRef, CheckpointLocations[i], Quaternion.identity);
 
             CheckpointFunctionality CheckpointScriptRef = SpawningCheckpoint.GetComponent<CheckpointFunctionality>();
             SpawningCheckpoint.gameObject.name = "Checkpoint " + i;
 
+            SpawningCheckpoint.transform.SetParent(CheckpointParentObject.transform);
+            CheckpointScriptRef.CheckpointNumber = i;
+
+            RemainingCheckpoints.Add(SpawningCheckpoint);
+
+            if (i >= 1)
+            {
+                SpawningCheckpoint.SetActive(false);
+            }
+
             i++;
         }
     }
 
     //the DisableCheckpoint will find and delete the checkpoint that was last hit, while serving as a reference point to enable the next checkpoint 
-    public void SetActiveCheckpoint(int DisableCheckpoint)
+    public void SetActiveCheckpoint()
     {
-        RemainingCheckpoints.Remove(RemainingCheckpoints[DisableCheckpoint]);
-
-        if(RemainingCheckpoints.Count > 1)
+        
+        if(RemainingCheckpoints.Count != 1)
         {
-            GameObject NextActivePoint = RemainingCheckpoints[DisableCheckpoint + 1];
+            GameObject NextActivePoint = RemainingCheckpoints[1];
             CheckpointFunctionality CheckpointScriptRef = NextActivePoint.GetComponent<CheckpointFunctionality>();
+
+            Debug.Log("Set active checkpoint method problem ");
+
             CheckpointScriptRef.IsActive = true;
             NextActivePoint.SetActive(true);
         }
+
+        RemainingCheckpoints.Remove(RemainingCheckpoints[0]);
     }
 
 }

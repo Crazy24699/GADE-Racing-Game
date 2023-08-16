@@ -7,7 +7,7 @@ public class CheckpointFunctionality : MonoBehaviour
     private HandleCheckpoints CheckpointScript;
 
     //Yes i could have made this private and used a getter and setter, but i have more self resoect than that
-    [HideInInspector] public int CheckpointNumber;
+    public int CheckpointNumber;
 
     public bool IsActive;
 
@@ -26,13 +26,13 @@ public class CheckpointFunctionality : MonoBehaviour
     {
         if (Colliders.CompareTag("Player"))
         {
-
+            StartCoroutine(DeleteDelay());
         }
     }
 
     public IEnumerator DeleteDelay()
     {
-        CheckpointScript.SetActiveCheckpoint(CheckpointNumber);
+        CheckpointScript.SetActiveCheckpoint();
         yield return new WaitForSeconds(1);
         Destroy(this.gameObject);
     }
