@@ -16,7 +16,7 @@ public class HandleCheckpoints : MonoBehaviour
     
     void Start()
     {
-        EventHandler.EventHandlerInstance.CheckpointTriggered.AddListener(SetActiveCheckpoint);
+        //EventHandler.EventHandlerInstance.CheckpointTriggered.AddListener(SetActiveCheckpoint);
         SpawnCheckpoints();
     }
 
