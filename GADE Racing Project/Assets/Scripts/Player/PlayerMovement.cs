@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public float CurrentMoveSpeed;
     protected float BaseGravity;
     public float GravityMultiplier;
+    protected float ConstantSpeed = 10f;
 
     [Header("Scripts"), Space(5)]
     public CharacterController PlayerController;
@@ -29,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Miscellaneous"), Space(5)]
     public LayerMask GroundLayer;    
+    public Rigidbody PlayerRigidbody;
+    public Camera PlayerCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -36,25 +39,36 @@ public class PlayerMovement : MonoBehaviour
         PlayerRef = GameObject.FindGameObjectWithTag("Player");
         PlayerController = PlayerRef.GetComponent<CharacterController>();
 
+        //Looks for rigidbody
+        PlayerRigidbody = PlayerRef.GetComponent<Rigidbody>();
+
         PerformChecks();
 
         
     }
 
+    public void FixedUpdate()
+    {
+        PlayerMoveFly();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        MoveMethod();
 
+        
     }
 
     private void PerformChecks()
     {
+        #region Base Move Speed
         if (BaseMoveSpeed <= 0)
         {
-            HandleExceptions("Speed");
+            HandleExceptions("BaseSpeed");
         }
+        #endregion 
 
+        #region Checking for the game manager script
         try
         {
             GameManagerScript = GameManager.FindObjectOfType<GameManager>();
@@ -69,6 +83,27 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log(Ex + "        GameManager doesnt exist");
             throw;
         }
+        #endregion
+
+        #region Constant Speed
+        if (ConstantSpeed <= 0)
+        {
+            HandleExceptions("ConstSpeed");
+        }
+        #endregion
+
+        try
+        {
+            if (PlayerRigidbody == null)
+            {
+                HandleExceptions("RBMiss");
+            }
+        }
+        catch (System.Exception)
+        {
+            Debug.Log("Rigidbody does not exist");
+            throw;
+        }
 
     }
 
@@ -79,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
             default:
                 break;
 
-            case "Speed":
+            case "BaseSpeed":
                 BaseMoveSpeed = 10;
                 break;
 
@@ -89,14 +124,31 @@ public class PlayerMovement : MonoBehaviour
                     BaseGravity = -9.81f;
                 }
                 break;
+
+            case "ConstSpeed":
+                ConstantSpeed = 10;
+                break;
         }
-
-
-
 
 
     }
 
+    public void PlayerMoveFly()
+    {
+        Vector3 MoveDirection=PlayerCamera.transform.position;
+
+        PlayerRigidbody.velocity = Vector3.forward * (BaseMoveSpeed * SpeedMultiplier);
+        
+        
+
+        if(Input.GetKey(KeyCode.W))
+        {
+
+        }
+
+    }
+
+    //Test Move method
     public void MoveMethod()
     {
         //Gravity
