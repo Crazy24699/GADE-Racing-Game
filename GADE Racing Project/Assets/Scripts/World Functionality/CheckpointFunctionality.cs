@@ -11,6 +11,8 @@ public class CheckpointFunctionality : MonoBehaviour
 
     public bool IsActive;
 
+    
+
     public void Awake()
     {
         GetCheckpointScriptRef();
@@ -32,8 +34,17 @@ public class CheckpointFunctionality : MonoBehaviour
 
     public IEnumerator DeleteDelay()
     {
-        CheckpointScript.SetActiveCheckpoint();
+        Debug.Log("Checkpoint");
+        IsActive = false;
         yield return new WaitForSeconds(1);
-        Destroy(this.gameObject);
+
+        if(!IsActive)
+        {
+            CheckpointScript.SetActiveCheckpoint();
+        }
+
+        yield return new WaitForSeconds(1.5f);
+        IsActive=true;
+        //Destroy(this.gameObject);
     }
 }

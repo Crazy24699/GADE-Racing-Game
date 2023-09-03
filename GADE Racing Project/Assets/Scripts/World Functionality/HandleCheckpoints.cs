@@ -1,23 +1,23 @@
-using System.Collections;
+
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 using static UnityEditor.FilePathAttribute;
 
 public class HandleCheckpoints : MonoBehaviour
 {
-    public string LastTriggeredCheckpoint;
-
-    public List<GameObject> RemainingCheckpoints;
-
-    public List<Vector3> CheckpointLocations;
-
     public GameObject CheckpointRef;
 
-    
+    public GameObject[] Checkpoints;
+    public Stack<GameObject> CheckPointStack = new Stack<GameObject>();
+
+    public GameObject ActiveCheckpoint;
+
     void Start()
     {
         //EventHandler.EventHandlerInstance.CheckpointTriggered.AddListener(SetActiveCheckpoint);
-        SpawnCheckpoints();
+        PopulateCheckpointLocations();
     }
 
     // Update is called once per frame
@@ -27,47 +27,37 @@ public class HandleCheckpoints : MonoBehaviour
     }
 
             //NOTE: Make this a await method and use a while loop to spawn everyting while the game loads
-    public void SpawnCheckpoints()
+    public void PopulateCheckpointLocations()
     {
-        for (int i = 0; i < CheckpointLocations.Count; )
+        List<GameObject> OrderedCheckpoints = new List<GameObject>();
+        int TaggedCheckpoints = GameObject.FindGameObjectsWithTag("Checkpoint").Length;
+        for (int i = TaggedCheckpoints; i > 0; i--)
         {
-            GameObject CheckpointParentObject = GameObject.Find("Checkpoint Parent");
-            GameObject SpawningCheckpoint;
-            SpawningCheckpoint = Instantiate(CheckpointRef, CheckpointLocations[i], Quaternion.identity);
-
-            CheckpointFunctionality CheckpointScriptRef = SpawningCheckpoint.GetComponent<CheckpointFunctionality>();
-            SpawningCheckpoint.gameObject.name = "Checkpoint " + i;
-
-            SpawningCheckpoint.transform.SetParent(CheckpointParentObject.transform);
-            CheckpointScriptRef.CheckpointNumber = i;
-
-            RemainingCheckpoints.Add(SpawningCheckpoint);
-
-            if (i >= 1)
-            {
-                SpawningCheckpoint.SetActive(false);
-            }
-
-            i++;
+            string CheckpointName = string.Format("Checkpoint ({0})", i-1);
+            OrderedCheckpoints.Add(GameObject.Find(CheckpointName));
         }
+        Checkpoints = OrderedCheckpoints.ToArray();
+        Checkpoints.Reverse();
+
+        Debug.Log(Checkpoints.Length);
+        foreach (var PointRef in Checkpoints)
+        {
+            Debug.Log(PointRef.name);
+            CheckPointStack.Push(PointRef);
+        }
+        ActiveCheckpoint.transform.position = CheckPointStack.Peek().transform.position;
+        Debug.Log(CheckPointStack.Count);
     }
 
     //the DisableCheckpoint will find and delete the checkpoint that was last hit, while serving as a reference point to enable the next checkpoint 
     public void SetActiveCheckpoint()
     {
+        Debug.Log(CheckPointStack.Peek());
+        CheckPointStack.Pop();
         
-        if(RemainingCheckpoints.Count != 1)
-        {
-            GameObject NextActivePoint = RemainingCheckpoints[1];
-            CheckpointFunctionality CheckpointScriptRef = NextActivePoint.GetComponent<CheckpointFunctionality>();
 
-            Debug.Log("Set active checkpoint method problem ");
-
-            CheckpointScriptRef.IsActive = true;
-            NextActivePoint.SetActive(true);
-        }
-
-        RemainingCheckpoints.Remove(RemainingCheckpoints[0]);
+        ActiveCheckpoint.transform.position = CheckPointStack.Peek().transform.position;
     }
+
 
 }
