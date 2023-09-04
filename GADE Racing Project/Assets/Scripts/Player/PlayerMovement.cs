@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,13 +12,19 @@ public class PlayerMovement : MonoBehaviour
     [Header("Bools"), Space(5)]
     public bool Grounded;
 
+    protected int RotationAngle;
+
     [Header("Floats"),Space(5)]
-    public float BaseMoveSpeed;
+    protected float BaseMoveSpeed;
     public float SpeedMultiplier;
     public float CurrentMoveSpeed;
-    protected float BaseGravity;
-    public float GravityMultiplier;
     protected float ConstantSpeed = 10f;
+    public float SmoothTurningTime = 0.25f;
+    private float TurnVelocity;
+
+    protected float BaseGravity;
+    protected float GravityMultiplier;
+
 
     [Header("Scripts"), Space(5)]
     public CharacterController PlayerController;
@@ -27,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject PlayerRef;
     protected Vector3 PlayerVelocity;
     protected Transform GroundCheck;
+    public GameObject ThrustPosition;
 
     [Header("Miscellaneous"), Space(5)]
     public LayerMask GroundLayer;    
@@ -135,16 +143,47 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlayerMoveFly()
     {
-        Vector3 MoveDirection=PlayerCamera.transform.position;
 
-        PlayerRigidbody.velocity = Vector3.forward * (BaseMoveSpeed * SpeedMultiplier);
-        
-        
+        CurrentMoveSpeed = (BaseMoveSpeed * SpeedMultiplier) + ConstantSpeed;
 
-        if(Input.GetKey(KeyCode.W))
+        float HorizontalBankDirection = Input.GetAxis("Horizontal");
+        float VerticalBankDiredction = Input.GetAxis("Vertical");
+
+
+        Vector3 MoveDirection = new Vector3(HorizontalBankDirection, VerticalBankDiredction, CurrentMoveSpeed).normalized;
+
+        if (MoveDirection.magnitude >= 0.1f)
         {
-
+            float FinalTurnAngle = Mathf.Atan2(MoveDirection.x, MoveDirection.y) * Mathf.Rad2Deg;
+            float CurrentTurnAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, FinalTurnAngle, ref TurnVelocity, SmoothTurningTime);
+            transform.rotation = Quaternion.Euler(0, CurrentTurnAngle, 0);
         }
+
+        PlayerRigidbody.velocity = MoveDirection * (BaseMoveSpeed * SpeedMultiplier);
+
+        string Values=string.Format("Horizontal Bank Value: {0}   "+"Vertical Bank Value: {1}",HorizontalBankDirection,VerticalBankDiredction);
+        Debug.Log(Values);
+
+
+
+        //CurrentMoveSpeed = (BaseMoveSpeed * SpeedMultiplier) + ConstantSpeed;
+
+        //float HorizontalBankDirection = Input.GetAxisRaw("Horizontal");
+        //float VerticalBankDiredction = Input.GetAxisRaw("Vertical");
+
+
+        //Vector3 MoveDirection = new Vector3(HorizontalBankDirection, VerticalBankDiredction, 20).normalized;
+
+        //if (MoveDirection.magnitude >= 0.1f)
+        //{
+        //    float FinalTurnAngle = Mathf.Atan2(MoveDirection.x, MoveDirection.z) * Mathf.Rad2Deg;
+        //    float CurrentTurnAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, FinalTurnAngle, ref TurnVelocity, SmoothTurningTime);
+        //    transform.rotation = Quaternion.Euler(0, CurrentTurnAngle, 0);
+        //}
+
+        //PlayerRigidbody.velocity = MoveDirection * (BaseMoveSpeed * SpeedMultiplier);
+        //string Values = string.Format("Horizontal Bank Value: {0}   " + "Vertical Bank Value: {1}", HorizontalBankDirection, VerticalBankDiredction);
+        //Debug.Log(Values);
 
     }
 
