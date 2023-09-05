@@ -448,7 +448,7 @@ MonoBehaviour:
   Grounded: 0
   SpeedMultiplier: 1
   CurrentMoveSpeed: 0
-  SmoothTurningTime: 0.1
+  SmoothTurningTime: 1.51
   PlayerController: {fileID: 0}
   GameManagerScript: {fileID: 0}
   PlayerRef: {fileID: 365461666}

@@ -1,9 +1,3 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -149,21 +143,25 @@ public class PlayerMovement : MonoBehaviour
         float HorizontalBankDirection = Input.GetAxis("Horizontal");
         float VerticalBankDiredction = Input.GetAxis("Vertical");
 
+        //Quaternion Rotation = Quaternion.Euler(VerticalBankDiredction * SmoothTurningTime, -HorizontalBankDirection * SmoothTurningTime, 0);
 
-        Vector3 MoveDirection = new Vector3(HorizontalBankDirection, VerticalBankDiredction, CurrentMoveSpeed).normalized;
-
-        if (MoveDirection.magnitude >= 0.1f)
+        if (Mathf.Abs(HorizontalBankDirection) != 0 || Mathf.Abs(VerticalBankDiredction) != 0)
         {
-            float FinalTurnAngle = Mathf.Atan2(MoveDirection.x, MoveDirection.y) * Mathf.Rad2Deg;
-            float CurrentTurnAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, FinalTurnAngle, ref TurnVelocity, SmoothTurningTime);
-            transform.rotation = Quaternion.Euler(0, CurrentTurnAngle, 0);
+            
+
         }
 
-        PlayerRigidbody.velocity = MoveDirection * (BaseMoveSpeed * SpeedMultiplier);
+        this.transform.Rotate(this.transform.rotation.x - VerticalBankDiredction * -1, this.transform.rotation.y - HorizontalBankDirection * -1, 0);
+
+        //PlayerRigidbody.velocity = Vector3.forward * (BaseMoveSpeed * SpeedMultiplier);
+        transform.Translate(Vector3.forward * Time.deltaTime * BaseMoveSpeed);
+        //PlayerRigidbody.MoveRotation(PlayerRigidbody.rotation * Rotation);
+
+        //PlayerRigidbody.AddForce(transform.forward * CurrentMoveSpeed);
+
 
         string Values=string.Format("Horizontal Bank Value: {0}   "+"Vertical Bank Value: {1}",HorizontalBankDirection,VerticalBankDiredction);
         Debug.Log(Values);
-
 
 
         //CurrentMoveSpeed = (BaseMoveSpeed * SpeedMultiplier) + ConstantSpeed;
