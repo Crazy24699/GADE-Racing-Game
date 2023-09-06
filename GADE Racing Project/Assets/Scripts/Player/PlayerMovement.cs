@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float SpeedMultiplier;
     public float CurrentMoveSpeed;
     protected float ConstantSpeed = 10f;
-    public float SmoothTurningTime = 0.25f;
+    public float RotationSpeed = 105f;
     private float TurnVelocity;
 
     protected float BaseGravity;
@@ -25,9 +26,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]protected GameManager GameManagerScript;
 
     [Header("GameObjects, vectors and transforms"), Space(5)]
-    public GameObject PlayerRef;
+    //Vectors
     protected Vector3 PlayerVelocity;
+    //transforms
     protected Transform GroundCheck;
+    protected Transform DefaultTransformValues;
+    //GameObejcts
+    public GameObject PlayerRef;
     public GameObject ThrustPosition;
 
     [Header("Miscellaneous"), Space(5)]
@@ -46,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
         PerformChecks();
 
+        DefaultTransformValues = this.transform;
         
     }
 
@@ -58,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        
+        //Debug.Log(transform.rotation.eulerAngles);
     }
 
     private void PerformChecks()
@@ -151,38 +157,61 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        this.transform.Rotate(this.transform.rotation.x - VerticalBankDiredction * -1, this.transform.rotation.y - HorizontalBankDirection * -1, 0);
+        if (Mathf.Abs(VerticalBankDiredction) != 0)
+        {
+            RotatePlayer(0, VerticalBankDiredction, Mathf.RoundToInt(this.transform.rotation.y), 35);
+        }
+        else if (Mathf.Abs(VerticalBankDiredction) <= 0.2 && transform.rotation.x != 0)
+        {
 
-        //PlayerRigidbody.velocity = Vector3.forward * (BaseMoveSpeed * SpeedMultiplier);
-        transform.Translate(Vector3.forward * Time.deltaTime * BaseMoveSpeed);
-        //PlayerRigidbody.MoveRotation(PlayerRigidbody.rotation * Rotation);
+            //repurpos this to fix the rotation of the 3d model.
+            //float RotationIncriment = RotationSpeed;
 
-        //PlayerRigidbody.AddForce(transform.forward * CurrentMoveSpeed);
+            //this.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, this.transform.rotation.y, this.transform.rotation.z), RotationIncriment);
 
+            StablizePlayer();
+            //Debug.Log("Fai  ");
+        }
 
+        if (Mathf.Abs(HorizontalBankDirection) != 0)
+        {
+            RotatePlayer(HorizontalBankDirection,0, 45,Mathf.RoundToInt(this.transform.rotation.eulerAngles.y));
+        }
+
+        else if (Mathf.Abs(HorizontalBankDirection) <= 0.2 && transform.rotation.eulerAngles.y != 0)
+        {
+
+            //repurpos this to fix the rotation of the 3d model.
+            //float RotationIncriment = RotationSpeed ;
+
+            //this.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0,0,0), RotationIncriment);
+
+            //Debug.Log("Fai  ");
+        }
+
+        transform.Translate(Vector3.forward * Time.deltaTime * CurrentMoveSpeed);
+
+        
         string Values=string.Format("Horizontal Bank Value: {0}   "+"Vertical Bank Value: {1}",HorizontalBankDirection,VerticalBankDiredction);
-        Debug.Log(Values);
-
-
-        //CurrentMoveSpeed = (BaseMoveSpeed * SpeedMultiplier) + ConstantSpeed;
-
-        //float HorizontalBankDirection = Input.GetAxisRaw("Horizontal");
-        //float VerticalBankDiredction = Input.GetAxisRaw("Vertical");
-
-
-        //Vector3 MoveDirection = new Vector3(HorizontalBankDirection, VerticalBankDiredction, 20).normalized;
-
-        //if (MoveDirection.magnitude >= 0.1f)
-        //{
-        //    float FinalTurnAngle = Mathf.Atan2(MoveDirection.x, MoveDirection.z) * Mathf.Rad2Deg;
-        //    float CurrentTurnAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, FinalTurnAngle, ref TurnVelocity, SmoothTurningTime);
-        //    transform.rotation = Quaternion.Euler(0, CurrentTurnAngle, 0);
-        //}
-
-        //PlayerRigidbody.velocity = MoveDirection * (BaseMoveSpeed * SpeedMultiplier);
-        //string Values = string.Format("Horizontal Bank Value: {0}   " + "Vertical Bank Value: {1}", HorizontalBankDirection, VerticalBankDiredction);
         //Debug.Log(Values);
 
+
+    }
+
+    public void StablizePlayer()
+    {
+        this.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, this.transform.rotation.eulerAngles.y, this.transform.rotation.eulerAngles.z), RotationSpeed);
+    }
+
+    public void RotatePlayer(float HoriDirection,float VertDirection, int MaxHoriRoation, int MaxVertRoation)
+    {
+        float RotationIncriment = RotationSpeed * Time.deltaTime;
+
+
+        transform.Rotate(Mathf.RoundToInt(VertDirection) * MaxVertRoation * RotationIncriment, Mathf.RoundToInt(HoriDirection) * MaxHoriRoation * RotationIncriment, this.transform.rotation.z);
+        //Quaternion RotationTarget = Quaternion.Euler(0, Mathf.RoundToInt(IncrimentDIrection) * MaxRoation, 0);
+
+        //this.transform.rotation = Quaternion.RotateTowards(transform.rotation, RotationTarget, RotationIncriment);
     }
 
     //Test Move method
