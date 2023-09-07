@@ -554,10 +554,10 @@ MonoBehaviour:
   Grounded: 0
   VerticalAngleClamp: 0
   HorizontalAngleClamp: 0
-  SpeedMultiplier: 1.55
+  SpeedMultiplier: 1.5
   CurrentMoveSpeed: 0
-  RotationSpeed: 0.74
-  StabilizeWaitTime: 0
+  RotationSpeed: 2.75
+  StabilizeWaitTime: 1
   CurrentStabilizeWaitTime: 0
   PlayerController: {fileID: 0}
   GameManagerScript: {fileID: 0}

@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     public float CurrentMoveSpeed;
     protected float ConstantSpeed = 10f;
     public float RotationSpeed = 105f;
+
+    //Time
     public float StabilizeWaitTime;
     public float CurrentStabilizeWaitTime;
 
@@ -158,15 +160,22 @@ public class PlayerMovement : MonoBehaviour
         float VerticalBankDiredction = Input.GetAxis("Vertical");
 
         //Quaternion Rotation = Quaternion.Euler(VerticalBankDiredction * SmoothTurningTime, -HorizontalBankDirection * SmoothTurningTime, 0);
-        
-        
-        if(VerticalBankDiredction != 0)
+
+
+        if (Mathf.Abs(VerticalBankDiredction) > 0)
         {
             Debug.Log("BankUp");
-            RotatePlayer(0, VerticalBankDiredction+(VerticalBankDiredction*1), 0, 35);
+            RotatePlayer(0, VerticalBankDiredction + (VerticalBankDiredction * 1), 0, 35);
+            CurrentStabilizeWaitTime = 0;
         }
+        else if (VerticalBankDiredction == 0)
+        {
+            StabilizePlayerRotation();
+        }
+
         if (Mathf.Abs(VerticalBankDiredction) != 0)
         {
+
         }
         else if (Mathf.Abs(VerticalBankDiredction) <= 0.2 && transform.rotation.x != 0)
         {
@@ -176,13 +185,14 @@ public class PlayerMovement : MonoBehaviour
 
             //this.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, this.transform.rotation.y, this.transform.rotation.z), RotationIncriment);
 
-            StablizePlayer();
+            //StablizePlayer();
             //Debug.Log("Fai  ");
         }
 
         if (Mathf.Abs(HorizontalBankDirection) != 0)
         {
             RotatePlayer(HorizontalBankDirection,0, 45,Mathf.RoundToInt(this.transform.rotation.eulerAngles.y));
+            CurrentStabilizeWaitTime = 0;
         }
 
         else if (Mathf.Abs(HorizontalBankDirection) <= 0.2 && transform.rotation.eulerAngles.y != 0)
@@ -206,7 +216,12 @@ public class PlayerMovement : MonoBehaviour
     
     public void StabilizePlayerRotation()
     {
-        
+        CurrentStabilizeWaitTime += Time.deltaTime;
+
+        if (Mathf.Abs(CurrentStabilizeWaitTime) >= StabilizeWaitTime)
+        {
+            this.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, this.transform.rotation.eulerAngles.y, 0), RotationSpeed * Time.deltaTime);
+        }
 
     }
 
@@ -217,10 +232,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void RotatePlayer(float HoriDirection,float VertDirection, int MaxHoriRoation, int MaxVertRoation)
     {
-        float RotationIncriment = RotationSpeed * Time.deltaTime;
+        float RotationIncriment = HoriDirection* Time.deltaTime;
 
 
-        transform.Rotate(Mathf.RoundToInt(VertDirection) * MaxVertRoation * RotationIncriment, Mathf.RoundToInt(HoriDirection) * MaxHoriRoation * RotationIncriment, 0);
+        transform.Rotate(VertDirection * MaxVertRoation * RotationIncriment, HoriDirection * MaxHoriRoation * RotationIncriment, 0);
         //Quaternion RotationTarget = Quaternion.Euler(0, Mathf.RoundToInt(IncrimentDIrection) * MaxRoation, 0);
 
         //this.transform.rotation = Quaternion.RotateTowards(transform.rotation, RotationTarget, RotationIncriment);
