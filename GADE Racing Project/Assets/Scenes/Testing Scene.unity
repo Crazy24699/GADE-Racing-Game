@@ -556,7 +556,7 @@ MonoBehaviour:
   HorizontalAngleClamp: 0
   SpeedMultiplier: 1.5
   CurrentMoveSpeed: 0
-  RotationSpeed: 2.75
+  RotationSpeed: 1.27
   StabilizeWaitTime: 1
   CurrentStabilizeWaitTime: 0
   PlayerController: {fileID: 0}
@@ -576,7 +576,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694148584}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.4037049, w: 0.91488934}
   m_LocalPosition: {x: 67.75, y: 2.41, z: -215}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -585,7 +585,7 @@ Transform:
   - {fileID: 365461671}
   - {fileID: 1293862370}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 47.62}
 --- !u!54 &694148591
 Rigidbody:
   m_ObjectHideFlags: 0

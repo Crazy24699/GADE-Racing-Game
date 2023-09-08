@@ -1,6 +1,8 @@
 
 using UnityEngine;
 using System;
+using UnityEngine.UI;
+using System.Net.Sockets;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -165,7 +167,7 @@ public class PlayerMovement : MonoBehaviour
         if (Mathf.Abs(VerticalBankDiredction) > 0)
         {
             Debug.Log("BankUp");
-            RotatePlayer(0, VerticalBankDiredction + (VerticalBankDiredction * 1), 0, 35);
+            RotatePlayer(0, VerticalBankDiredction, 0, 35);
             CurrentStabilizeWaitTime = 0;
         }
         else if (VerticalBankDiredction == 0)
@@ -186,12 +188,14 @@ public class PlayerMovement : MonoBehaviour
             //this.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, this.transform.rotation.y, this.transform.rotation.z), RotationIncriment);
 
             //StablizePlayer();
+            //float RotationIncriment = (Mathf.Abs(HoriDirection) >= 0.5f) ? HoriDirection * Time.deltaTime : VertDirection * Time.deltaTime;
             //Debug.Log("Fai  ");
         }
 
         if (Mathf.Abs(HorizontalBankDirection) != 0)
         {
-            RotatePlayer(HorizontalBankDirection,0, 45,Mathf.RoundToInt(this.transform.rotation.eulerAngles.y));
+            //RotatePlayer(HorizontalBankDirection+(HorizontalBankDirection*1),0, 45,Mathf.RoundToInt(this.transform.rotation.eulerAngles.y));
+            RotatePlayer(HorizontalBankDirection,0,45,0); ;
             CurrentStabilizeWaitTime = 0;
         }
 
@@ -220,7 +224,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Mathf.Abs(CurrentStabilizeWaitTime) >= StabilizeWaitTime)
         {
-            this.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, this.transform.rotation.eulerAngles.y, 0), RotationSpeed * Time.deltaTime);
+            this.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, this.transform.rotation.eulerAngles.y, 0), 10* Time.deltaTime);
         }
 
     }
@@ -232,10 +236,17 @@ public class PlayerMovement : MonoBehaviour
 
     public void RotatePlayer(float HoriDirection,float VertDirection, int MaxHoriRoation, int MaxVertRoation)
     {
-        float RotationIncriment = HoriDirection* Time.deltaTime;
+        Debug.Log(HoriDirection+"       "+VertDirection);
+        float RotationIncriment;
+        float InputDirection = (Mathf.Abs(HoriDirection) >= 0.2f) ?   RotationIncriment = (HoriDirection * Time.deltaTime)  : RotationIncriment = ( VertDirection * Time.deltaTime);
+
+        float TurningDirection = (InputDirection >= 0.5) ? RotationIncriment : RotationIncriment;
+
+       
 
 
-        transform.Rotate(VertDirection * MaxVertRoation * RotationIncriment, HoriDirection * MaxHoriRoation * RotationIncriment, 0);
+        transform.Rotate(TurningDirection * MaxVertRoation * RotationSpeed, TurningDirection * MaxHoriRoation * RotationSpeed,0);
+
         //Quaternion RotationTarget = Quaternion.Euler(0, Mathf.RoundToInt(IncrimentDIrection) * MaxRoation, 0);
 
         //this.transform.rotation = Quaternion.RotateTowards(transform.rotation, RotationTarget, RotationIncriment);
