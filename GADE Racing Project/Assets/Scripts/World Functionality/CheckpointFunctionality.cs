@@ -28,6 +28,7 @@ public class CheckpointFunctionality : MonoBehaviour
     {
         if (Colliders.CompareTag("Player"))
         {
+            Debug.Log("collision");
             StartCoroutine(DeleteDelay());
         }
     }
