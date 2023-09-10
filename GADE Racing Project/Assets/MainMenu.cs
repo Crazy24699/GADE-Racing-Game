@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -18,19 +19,21 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        EnablePanel("Dialog Menu");
         ReadDialogScript = GameObject.FindAnyObjectByType<ReadTextLine>();
         GameObject DialogTextboxRef = GameObject.Find("DialogTextbox");
         DialogText = DialogTextboxRef.GetComponent<TextMeshProUGUI>();
-
-
+        
     }
-
 
     public void MainMenuActive()
     {
         EnablePanel("Main Menu");
     }
-
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
     public void SelectDifficultyPanel()
     {
         EnablePanel("Difficulty Selector");
@@ -38,16 +41,19 @@ public class MainMenu : MonoBehaviour
 
     public void DialogMenu()
     {
-        EnablePanel("Dialog Menu");
+        
 
         if(DialogCount < 3)
         {
             NextDialogPortion();
+            
         }
-        else
+        if(DialogCount >= 3) 
         {
+
+            Debug.Log("the snoiw");
             SelectDifficultyPanel();
-            GameObject DialogTextboxRef = GameObject.Find("DifficultyTextBox");
+            GameObject DialogTextboxRef = GameObject.Find("DifficultyTextbox");
             DialogText = DialogTextboxRef.GetComponent<TextMeshProUGUI>();
             NextDialogPortion();
         }
@@ -75,15 +81,28 @@ public class MainMenu : MonoBehaviour
 
     public void EnablePanel(string ActivePanel)
     {
+        
         foreach (GameObject UIPanel in PanelList)
         {
-            if(!UIPanel.name.Contains(ActivePanel))
+            UIPanel.SetActive(false);
+            
+            if(UIPanel.name.Contains(ActivePanel))
             {
-                UIPanel.SetActive(false);
-                return;
+                UIPanel.SetActive(true);
+                
             }
-            UIPanel.SetActive(true);
+            Debug.Log(UIPanel.name);
         }
+    }
+
+    public void EasyModeSelected()
+    {
+        SceneManager.LoadScene("Testing Scene");
+    }
+
+    public void MoveToMainMenu()
+    {
+        EnablePanel("Main Menu");
     }
 
 }
