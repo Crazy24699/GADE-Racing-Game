@@ -13,9 +13,10 @@ public class CheckpointFunctionality : MonoBehaviour
 
     
 
-    public void Awake()
+    public void Start()
     {
         GetCheckpointScriptRef();
+        EventHandler.EventHandlerInstance.CheckpointTriggered.AddListener(HitCheckpoint);
     }
 
     public void GetCheckpointScriptRef()
@@ -28,12 +29,12 @@ public class CheckpointFunctionality : MonoBehaviour
     {
         if (Colliders.CompareTag("Player"))
         {
-            Debug.Log("collision");
-            DeleteDelay();
+            EventHandler.EventHandlerInstance.CheckpointTriggered.Invoke();
+
         }
     }
 
-    public void DeleteDelay()
+    public void HitCheckpoint()
     {
         IsActive = false;
 

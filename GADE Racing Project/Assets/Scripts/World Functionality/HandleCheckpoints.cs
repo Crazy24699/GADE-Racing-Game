@@ -1,6 +1,9 @@
 
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,14 +18,20 @@ public class HandleCheckpoints : MonoBehaviour
 
     void Start()
     {
-        //EventHandler.EventHandlerInstance.CheckpointTriggered.AddListener(SetActiveCheckpoint);
         PopulateCheckpointLocations();
+        StartCoroutine(AssignDelay());
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public IEnumerator AssignDelay()
+    {
+        yield return new WaitForSeconds(1);
+        EventHandler.EventHandlerInstance.CheckpointTriggered.AddListener(SetActiveCheckpoint);
     }
 
             //NOTE: Make this a await method and use a while loop to spawn everyting while the game loads
@@ -53,9 +62,15 @@ public class HandleCheckpoints : MonoBehaviour
     {
         Debug.Log(CheckPointStack.Peek());
         CheckPointStack.Pop();
-        
 
-        ActiveCheckpoint.transform.position = CheckPointStack.Peek().transform.position;
+        if (CheckPointStack.Count>=1)
+        {
+            ActiveCheckpoint.transform.position = CheckPointStack.Peek().transform.position;
+        }
+        else if(CheckPointStack.Count==0)
+        {
+            EventHandler.EventHandlerInstance.FinishedRace.Invoke();
+        }
     }
 
 

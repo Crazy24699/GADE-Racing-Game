@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     {
         Timer = GameObject.Find("Time Remaining").GetComponent<TextMeshProUGUI>();
         ConvertToSeconds();
-
+        EventHandler.EventHandlerInstance.CheckpointTriggered.AddListener(Addtime);
 
         CurrentTime = TotalStartingTime;
         if( CurrentTime > 0)
@@ -28,6 +28,11 @@ public class GameManager : MonoBehaviour
         }
 
         
+    }
+
+    public void Addtime()
+    {
+        CurrentTime += 10;
     }
 
     public void Update()
