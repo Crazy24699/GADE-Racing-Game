@@ -11,6 +11,7 @@ public class ReadTextLine : MonoBehaviour
 
     protected string FilePath;
     [SerializeField]protected string[] AllDialogLines;
+    public TextMeshProUGUI Path;
 
     //Gives the needed amount of lines for the dialog to be displayed 
     protected int[] DialogLineValues =
@@ -21,23 +22,30 @@ public class ReadTextLine : MonoBehaviour
         10,
     };
         
-    [SerializeField]protected int CurrentDialogLine;
-    [SerializeField]protected int DialogLineCount;
+    public int CurrentDialogLine;
+    public int DialogLineCount;
 
 
     protected void Awake()
     {
         DialogLineCount = 0;
+        CurrentDialogLine = 0;
         Debug.Log("run");
         FindDialogFile();
         
     }
 
-    protected void FindDialogFile()
+    public void FindDialogFile()
     {
         DialogFile = Resources.Load<TextAsset>("Dialog");
-        FilePath = AssetDatabase.GetAssetPath(DialogFile);
-        AllDialogLines = File.ReadAllLines(FilePath);
+        if (DialogFile != null)
+        {
+            //Application.Quit();
+        }
+        //FilePath = AssetDatabase.GetAssetPath(DialogFile);
+        Debug.Log(DialogFile.text);
+
+        AllDialogLines = DialogFile.text.Split('\n');
     }
 
     public Queue DialogLines()

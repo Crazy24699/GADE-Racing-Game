@@ -367,8 +367,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2416834e3f10bb429c62e6bcd5a6625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogFile: {fileID: 0}
+  DialogFile: {fileID: 4900000, guid: 57cc78246564d45478188cb62c522de0, type: 3}
   AllDialogLines: []
+  Path: {fileID: 0}
   CurrentDialogLine: 0
   DialogLineCount: 0
 --- !u!1 &359496921
@@ -1178,7 +1179,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &738088817
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1678,7 +1679,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1087588462
 RectTransform:
   m_ObjectHideFlags: 0

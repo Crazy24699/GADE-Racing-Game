@@ -13,13 +13,28 @@ public class MainMenu : MonoBehaviour
     public List<GameObject> PanelList;
     [SerializeField]protected ReadTextLine ReadDialogScript;
     public TextMeshProUGUI DialogText;
+    protected ReadTextLine ReadText;
+
+    public GameObject Name;
 
     //Counts how many times the player has clicked the next dialog button 
     public int DialogCount = 0;
 
+    public void SpawnName()
+    {
+        Debug.Log(Name.name);
+    }
+
     public void StartGame()
     {
+        ReadText=GameObject.FindAnyObjectByType<ReadTextLine>();
+
+
         EnablePanel("Dialog Menu");
+
+        ReadText.DialogLineCount = 0;
+        ReadText.CurrentDialogLine = 0;
+
         ReadDialogScript = GameObject.FindAnyObjectByType<ReadTextLine>();
         GameObject DialogTextboxRef = GameObject.Find("DialogTextbox");
         DialogText = DialogTextboxRef.GetComponent<TextMeshProUGUI>();
@@ -73,7 +88,7 @@ public class MainMenu : MonoBehaviour
         string WrittenDialog = "";
         foreach(string Line in DialogQueue)
         {
-            WrittenDialog = WrittenDialog + Line + "\n";
+            WrittenDialog = WrittenDialog + Line + "\n ";
         }
         DialogCount++;
         DialogText.text = WrittenDialog;

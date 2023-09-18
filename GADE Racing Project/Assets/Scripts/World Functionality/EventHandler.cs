@@ -12,6 +12,7 @@ public class EventHandler : MonoBehaviour
     public UnityEvent RaceFailed;
     public UnityEvent CheckpointTriggered;
     public UnityEvent FinishedRace;
+    
 
     public GameObject PlayerWinPanel;
     public GameObject PlayerLossPanel;
