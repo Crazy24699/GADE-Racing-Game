@@ -1,6 +1,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -32,7 +33,17 @@ public class HandleCheckpoints : MonoBehaviour
         int TaggedCheckpoints = GameObject.FindGameObjectsWithTag("Checkpoint").Length;
         for (int i = TaggedCheckpoints; i > 0; i--)
         {
-            string CheckpointName = string.Format("Checkpoint ({0})", i-1);
+            string CheckpointName;
+            if (i == TaggedCheckpoints)
+            {
+                CheckpointName = ("Start Of Race");
+            }
+            else
+            {
+                CheckpointName = string.Format("Checkpoint ({0})", i-1);
+            }
+
+            
             OrderedCheckpoints.Add(GameObject.Find(CheckpointName));
         }
         Checkpoints = OrderedCheckpoints.ToArray();
@@ -56,6 +67,7 @@ public class HandleCheckpoints : MonoBehaviour
         
 
         ActiveCheckpoint.transform.position = CheckPointStack.Peek().transform.position;
+
     }
 
 
