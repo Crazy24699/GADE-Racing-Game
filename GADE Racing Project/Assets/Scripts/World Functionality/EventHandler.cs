@@ -15,7 +15,7 @@ public class EventHandler : MonoBehaviour
 
     void Start()
     {
-        SetPlayerLocation();
+        DontDestroyOnLoad(this.gameObject);
     }
 
     public void SetPlayerLocation()
