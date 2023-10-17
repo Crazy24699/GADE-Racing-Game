@@ -29,23 +29,19 @@ public class CheckpointFunctionality : MonoBehaviour
         if (Colliders.CompareTag("Player"))
         {
             Debug.Log("collision");
-            StartCoroutine(DeleteDelay());
+            DeleteDelay();
         }
     }
 
-    public IEnumerator DeleteDelay()
+    public void DeleteDelay()
     {
-        Debug.Log("Checkpoint");
         IsActive = false;
-        yield return new WaitForSeconds(1);
 
         if(!IsActive)
         {
             CheckpointScript.SetActiveCheckpoint();
         }
 
-        yield return new WaitForSeconds(1.5f);
-        IsActive=true;
-        //Destroy(this.gameObject);
+
     }
 }
