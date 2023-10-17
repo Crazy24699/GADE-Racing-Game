@@ -122,7 +122,11 @@ MonoBehaviour:
   vertical: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: 38
+=======
+  controlID: 40
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
   controlID: 40
 >>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
@@ -155,7 +159,11 @@ MonoBehaviour:
   vertical: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: 39
+=======
+  controlID: 41
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
   controlID: 41
 >>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
@@ -188,7 +196,11 @@ MonoBehaviour:
   vertical: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: 40
+=======
+  controlID: 42
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
   controlID: 42
 >>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
@@ -275,7 +287,11 @@ MonoBehaviour:
   vertical: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: 50
+=======
+  controlID: 52
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
   controlID: 52
 >>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
@@ -301,7 +317,11 @@ MonoBehaviour:
     y: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 677
+=======
+    width: 679
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
     width: 679
 >>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
@@ -333,7 +353,11 @@ MonoBehaviour:
     serializedVersion: 2
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 677
+=======
+    x: 679
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
     x: 679
 >>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
@@ -394,9 +418,15 @@ MonoBehaviour:
     serializedVersion: 2
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 1606
     y: 0
     width: 314
+=======
+    x: 1608
+    y: 0
+    width: 312
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
     x: 1608
     y: 0
@@ -531,6 +561,9 @@ MonoBehaviour:
       m_LastClickedID: 0
       m_ExpandedIDs: 06fbffff
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
+=======
 >>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
 >>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
@@ -928,9 +961,15 @@ MonoBehaviour:
   m_Position:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: 41.06778, y: 60.71119, z: -68.847916}
     speed: 2
     m_Value: {x: 41.06778, y: 60.71119, z: -68.847916}
+=======
+    m_Target: {x: 91.12097, y: 44.700607, z: -111.35456}
+    speed: 2
+    m_Value: {x: 91.12097, y: 44.700607, z: -111.35456}
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
     m_Target: {x: 91.12097, y: 44.700607, z: -111.35456}
     speed: 2
@@ -988,6 +1027,7 @@ MonoBehaviour:
   m_Rotation:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: -0.20984799, y: 0.6638419, z: -0.20231296, w: -0.6885996}
     speed: 2
     m_Value: {x: -0.20956291, y: 0.66493315, z: -0.20264553, w: -0.68766415}
@@ -995,6 +1035,15 @@ MonoBehaviour:
     m_Target: 132.3764
     speed: 2
     m_Value: 132.3764
+=======
+    m_Target: {x: -0.2319631, y: 0.6709472, z: -0.23430252, w: -0.66413647}
+    speed: 2
+    m_Value: {x: -0.23196867, y: 0.6709633, z: -0.23430815, w: -0.66415244}
+  m_Size:
+    m_Target: 125.96966
+    speed: 2
+    m_Value: 125.96966
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
     m_Target: {x: -0.2319631, y: 0.6709472, z: -0.23430252, w: -0.66413647}
     speed: 2
@@ -1061,7 +1110,11 @@ MonoBehaviour:
     y: 73
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 996
+=======
+    width: 998
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
     width: 998
 >>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
@@ -1123,10 +1176,17 @@ MonoBehaviour:
       y: 21
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       width: 996
       height: 644
     m_Scale: {x: 0.51875, y: 0.51875}
     m_Translation: {x: 498, y: 322}
+=======
+      width: 998
+      height: 644
+    m_Scale: {x: 0.51979166, y: 0.51979166}
+    m_Translation: {x: 499, y: 322}
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
       width: 998
       height: 644
@@ -1148,12 +1208,21 @@ MonoBehaviour:
       x: -960
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       y: -620.7229
       width: 1920
       height: 1241.4458
     m_MinimalGUI: 1
   m_defaultScale: 0.51875
   m_LastWindowPixelSize: {x: 996, y: 665}
+=======
+      y: -619.47894
+      width: 1920
+      height: 1238.9579
+    m_MinimalGUI: 1
+  m_defaultScale: 0.51979166
+  m_LastWindowPixelSize: {x: 998, y: 665}
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
       y: -619.47894
       width: 1920
@@ -1199,7 +1268,11 @@ MonoBehaviour:
     y: 759
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 676
+=======
+    width: 678
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
     width: 678
 >>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
@@ -1230,7 +1303,11 @@ MonoBehaviour:
     m_Folders:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - Assets/Prefabs
+=======
+    - Assets
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
     - Assets
 >>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
@@ -1246,9 +1323,15 @@ MonoBehaviour:
   m_LastFolders:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - Assets/Prefabs
   m_LastFoldersGridSize: 42
   m_LastProjectPath: I:\Unity Projects\Github Projects\GADE-Racing-Game\GADE Racing
+=======
+  - Assets
+  m_LastFoldersGridSize: 42
+  m_LastProjectPath: G:\Unity Projects\Github Projects\GADE-Racing-Game\GADE Racing
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
   - Assets
   m_LastFoldersGridSize: 42
@@ -1266,9 +1349,15 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_SelectedIDs: 1a060000
     m_LastClickedID: 1562
     m_ExpandedIDs: 00000000ee05000000ca9a3bffffff7f
+=======
+    m_SelectedIDs: 985b0000
+    m_LastClickedID: 23448
+    m_ExpandedIDs: 000000008e5b000000ca9a3b
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
     m_SelectedIDs: 985b0000
     m_LastClickedID: 23448
@@ -1308,7 +1397,11 @@ MonoBehaviour:
     m_LastClickedID: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 
+=======
+    m_ExpandedIDs: 000000008e5b0000
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
     m_ExpandedIDs: 000000008e5b0000
 >>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
@@ -1435,7 +1528,11 @@ MonoBehaviour:
     m_LastClickedID: 23422
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 
+=======
+    m_ExpandedIDs: 000000008e5b0000
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
     m_ExpandedIDs: 000000008e5b0000
 >>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
@@ -1471,7 +1568,11 @@ MonoBehaviour:
     m_LastClickedID: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 
+=======
+    m_ExpandedIDs: 000000008e5b0000
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
     m_ExpandedIDs: 000000008e5b0000
 >>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
@@ -1555,7 +1656,11 @@ MonoBehaviour:
     serializedVersion: 2
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 2597
+=======
+    x: 2599
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
     x: 2599
 >>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
@@ -1597,7 +1702,11 @@ MonoBehaviour:
     serializedVersion: 2
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 3185
+=======
+    x: 3187
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
     x: 3187
 >>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
@@ -1652,9 +1761,15 @@ MonoBehaviour:
     serializedVersion: 2
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 3526
     y: 73
     width: 313
+=======
+    x: 3528
+    y: 73
+    width: 311
+>>>>>>> parent of 0276353 (Merge remote-tracking branch 'origin/Ewans-Branch')
 =======
     x: 3528
     y: 73
