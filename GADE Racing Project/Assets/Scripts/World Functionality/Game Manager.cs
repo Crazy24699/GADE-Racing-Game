@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameManager GameManagerInstance;
+    public static GameManager GameManagerInstance;
 
 
     public float BaseGravity = -9.81f;

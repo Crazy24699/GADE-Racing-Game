@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class EventHandler : MonoBehaviour
 {
@@ -12,6 +14,10 @@ public class EventHandler : MonoBehaviour
 
     public GameObject StartRacePoint;
     public GameObject PlayerObject;
+
+    public string CurrentScene;
+
+    public string[] TotalScenes;
 
     void Start()
     {
@@ -31,4 +37,22 @@ public class EventHandler : MonoBehaviour
     {
         
     }
+
+    public void PopulateSceneArray()
+    {
+        
+        
+    }
+
+    public void AddPlayer()
+    {
+        if (!CurrentScene.Contains("Main Menu"))
+        {
+            if(PlayerObject==null)
+            {
+                PlayerObject = GameObject.FindGameObjectWithTag("Player");
+            }
+        }
+    }
+
 }
