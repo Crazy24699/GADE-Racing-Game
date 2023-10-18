@@ -16,9 +16,15 @@ C:/github/GADE-Racing-Game/GADE Racing Project
 Logs/AssetImportWorker1.log
 -srvPort
 <<<<<<< HEAD
+<<<<<<< HEAD
 50977
 Successfully changed project path to: I:/Unity Projects/Github Projects/GADE-Racing-Game/GADE Racing Project
 I:/Unity Projects/Github Projects/GADE-Racing-Game/GADE Racing Project
+=======
+60464
+Successfully changed project path to: C:/github/GADE-Racing-Game/GADE Racing Project
+C:/github/GADE-Racing-Game/GADE Racing Project
+>>>>>>> parent of 2c76e54 (Initialization)
 =======
 60464
 Successfully changed project path to: C:/github/GADE-Racing-Game/GADE Racing Project
@@ -56,11 +62,19 @@ C:/github/GADE-Racing-Game/GADE Racing Project
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
 <<<<<<< HEAD
+<<<<<<< HEAD
 Player connection [33360] Host "[IP] 192.168.0.142 [Port] 0 [Flags] 2 [Guid] 2297666070 [EditorId] 2297666070 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-F73CV43) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
 Player connection [33360] Host "[IP] 192.168.0.142 [Port] 0 [Flags] 2 [Guid] 2297666070 [EditorId] 2297666070 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-F73CV43) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 Refreshing native plugins compatible for Editor in 3.76 ms, found 3 plugins.
+=======
+Player connection [13296] Host "[IP] 10.161.225.121 [Port] 0 [Flags] 2 [Guid] 2175798403 [EditorId] 2175798403 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-OFEIVV2) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [13296] Host "[IP] 10.161.225.121 [Port] 0 [Flags] 2 [Guid] 2175798403 [EditorId] 2175798403 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-OFEIVV2) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 8.61 ms, found 3 plugins.
+>>>>>>> parent of 2c76e54 (Initialization)
 =======
 Player connection [13296] Host "[IP] 10.161.225.121 [Port] 0 [Flags] 2 [Guid] 2175798403 [EditorId] 2175798403 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-OFEIVV2) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
@@ -84,7 +98,11 @@ Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/Managed
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/MonoBleedingEdge/etc'
 <<<<<<< HEAD
+<<<<<<< HEAD
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56352
+=======
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56692
+>>>>>>> parent of 2c76e54 (Initialization)
 =======
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56692
 >>>>>>> parent of 2c76e54 (Initialization)
@@ -94,8 +112,13 @@ Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.7f1/E
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 <<<<<<< HEAD
+<<<<<<< HEAD
 Registered in 0.007297 seconds.
 - Loaded All Assemblies, in  0.223 seconds
+=======
+Registered in 0.011142 seconds.
+- Loaded All Assemblies, in  0.342 seconds
+>>>>>>> parent of 2c76e54 (Initialization)
 =======
 Registered in 0.011142 seconds.
 - Loaded All Assemblies, in  0.342 seconds
@@ -105,6 +128,7 @@ Native extension for WindowsStandalone target not found
 [usbmuxd] Listen thread started
 Native extension for iOS target not found
 Native extension for Android target not found
+<<<<<<< HEAD
 <<<<<<< HEAD
 Android Extension - Scanning For ADB Devices 1707 ms
 Mono: successfully reloaded assembly
@@ -118,10 +142,18 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling: 925ms
 	BeginReloadAssembly (102ms)
 >>>>>>> parent of 2c76e54 (Initialization)
+=======
+Android Extension - Scanning For ADB Devices 267 ms
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.584 seconds
+Domain Reload Profiling: 925ms
+	BeginReloadAssembly (102ms)
+>>>>>>> parent of 2c76e54 (Initialization)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
+<<<<<<< HEAD
 <<<<<<< HEAD
 		CreateAndSetChildDomain (0ms)
 	RebuildCommonClasses (21ms)
@@ -171,6 +203,31 @@ Domain Reload Profiling: 925ms
 			ProcessInitializeOnLoadAttributes (96ms)
 			ProcessInitializeOnLoadMethodAttributes (42ms)
 >>>>>>> parent of 2c76e54 (Initialization)
+=======
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (31ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (63ms)
+	LoadAllAssembliesAndSetupDomain (135ms)
+		LoadAssemblies (101ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (132ms)
+			TypeCache.Refresh (131ms)
+				TypeCache.ScanAssembly (118ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (585ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (530ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (385ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (3ms)
+			ProcessInitializeOnLoadAttributes (96ms)
+			ProcessInitializeOnLoadMethodAttributes (42ms)
+>>>>>>> parent of 2c76e54 (Initialization)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -179,15 +236,21 @@ Domain Reload Profiling: 925ms
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
 <<<<<<< HEAD
+<<<<<<< HEAD
 Symbol file LoadedFromMemory doesn't match image I:\Unity Projects\Github Projects\GADE-Racing-Game\GADE Racing Project\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image I:\Unity Projects\Github Projects\GADE-Racing-Game\GADE Racing Project\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 - Loaded All Assemblies, in  0.434 seconds
 Refreshing native plugins compatible for Editor in 1.36 ms, found 3 plugins.
 =======
+=======
+>>>>>>> parent of 2c76e54 (Initialization)
 Symbol file LoadedFromMemory doesn't match image C:\github\GADE-Racing-Game\GADE Racing Project\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\github\GADE-Racing-Game\GADE Racing Project\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 - Loaded All Assemblies, in  0.699 seconds
 Refreshing native plugins compatible for Editor in 4.37 ms, found 3 plugins.
+<<<<<<< HEAD
+>>>>>>> parent of 2c76e54 (Initialization)
+=======
 >>>>>>> parent of 2c76e54 (Initialization)
 Native extension for WindowsStandalone target not found
 Native extension for iOS target not found
@@ -198,9 +261,15 @@ Package Manager log level set to [2]
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
 <<<<<<< HEAD
+<<<<<<< HEAD
 - Finished resetting the current domain, in  0.359 seconds
 Domain Reload Profiling: 792ms
 	BeginReloadAssembly (100ms)
+=======
+- Finished resetting the current domain, in  0.622 seconds
+Domain Reload Profiling: 1318ms
+	BeginReloadAssembly (167ms)
+>>>>>>> parent of 2c76e54 (Initialization)
 =======
 - Finished resetting the current domain, in  0.622 seconds
 Domain Reload Profiling: 1318ms
@@ -210,6 +279,7 @@ Domain Reload Profiling: 1318ms
 		DisableScriptedObjects (6ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
+<<<<<<< HEAD
 <<<<<<< HEAD
 		CreateAndSetChildDomain (24ms)
 	RebuildCommonClasses (32ms)
@@ -272,6 +342,34 @@ Total: 2.431600 ms (FindLiveObjects: 0.191600 ms CreateObjectMapping: 0.062700 m
 			AfterProcessingInitializeOnLoad (7ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
+=======
+		CreateAndSetChildDomain (30ms)
+	RebuildCommonClasses (34ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (44ms)
+	LoadAllAssembliesAndSetupDomain (441ms)
+		LoadAssemblies (336ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (202ms)
+			TypeCache.Refresh (177ms)
+				TypeCache.ScanAssembly (158ms)
+			ScanForSourceGeneratedMonoScriptInfo (16ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (622ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (458ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (38ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (66ms)
+			ProcessInitializeOnLoadAttributes (324ms)
+			ProcessInitializeOnLoadMethodAttributes (19ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+>>>>>>> parent of 2c76e54 (Initialization)
 		AwakeInstancesAfterBackupRestoration (6ms)
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
 Refreshing native plugins compatible for Editor in 3.81 ms, found 3 plugins.
@@ -280,6 +378,9 @@ Unloading 3263 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 44 unused Assets / (129.9 KB). Loaded Objects now: 3727.
 Memory consumption went from 127.5 MB to 127.4 MB.
 Total: 3.904500 ms (FindLiveObjects: 0.325400 ms CreateObjectMapping: 0.289000 ms MarkObjects: 3.120900 ms  DeleteObjects: 0.167900 ms)
+<<<<<<< HEAD
+>>>>>>> parent of 2c76e54 (Initialization)
+=======
 >>>>>>> parent of 2c76e54 (Initialization)
 
 AssetImportParameters requested are different than current active one (requested -> active):
@@ -295,6 +396,14 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 <<<<<<< HEAD
 =======
+========================================================================
+Received Import Request.
+  Time since last request: 905101.723229 seconds.
+  path: Assets/Scenes/Main Menu.unity
+  artifactKey: Guid(07a278e9fbea6464e82463180d019e0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Main Menu.unity using Guid(07a278e9fbea6464e82463180d019e0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '472d92375990332cd0932eeebe3c2fa0') in 0.005544 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
   Time since last request: 905101.723229 seconds.
@@ -2248,5 +2357,9 @@ TcpMessagingSession - receive error
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
 AssetImportWorker is now disconnected from the server
 Process exiting
+<<<<<<< HEAD
+Exiting without the bug reporter. Application will terminate with return code 0
+>>>>>>> parent of 2c76e54 (Initialization)
+=======
 Exiting without the bug reporter. Application will terminate with return code 0
 >>>>>>> parent of 2c76e54 (Initialization)
